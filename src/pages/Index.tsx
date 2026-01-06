@@ -222,22 +222,23 @@ export default function Index() {
         <section className="animate-fade-in">
           <h2 className="mb-6 text-xl font-bold text-foreground">Past Incidents</h2>
           <IncidentTimeline days={pastIncidents} />
+          <div className="mt-6 text-center">
+            <a
+              href="#"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              View incident history →
+            </a>
+          </div>
         </section>
       </main>
 
       {/* Footer */}
       <footer className="border-t border-border bg-card py-6">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <div className="flex flex-col items-center gap-2">
-            <img
-              src={resolvedTheme === "dark" ? logoDark : logoLight}
-              alt="Hostzero"
-              className="h-6 opacity-60"
-            />
-            <p className="text-sm text-muted-foreground">
-              © 2026 Hostzero. All systems monitored 24/7.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            © 2026 Hostzero. All systems monitored 24/7.
+          </p>
         </div>
       </footer>
     </div>
