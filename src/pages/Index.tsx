@@ -6,7 +6,9 @@ import { IncidentTimeline, type DayIncidents } from "@/components/status/Inciden
 import { StatusLegend } from "@/components/status/StatusLegend";
 import { ThemeToggle } from "@/components/status/ThemeToggle";
 import { SubscribeDialog, SubscribeButton } from "@/components/status/SubscribeDialog";
-import { Activity } from "lucide-react";
+import { useTheme } from "next-themes";
+import logoLight from "@/assets/logo-light.svg";
+import logoDark from "@/assets/logo-dark.svg";
 
 // Sample data
 const serviceGroups: { name: string; services: Service[] }[] = [
@@ -153,6 +155,7 @@ function getOverallStatus() {
 export default function Index() {
   const overallStatus = getOverallStatus();
   const [isSubscribeOpen, setIsSubscribeOpen] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   return (
     <div className="min-h-screen bg-background">
@@ -163,13 +166,13 @@ export default function Index() {
       <header className="border-b border-border bg-card">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-              <Activity className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-lg font-bold text-foreground">StatusPage</h1>
-              <p className="text-xs text-muted-foreground">System Status</p>
-            </div>
+            <img
+              src={resolvedTheme === "dark" ? logoDark : logoLight}
+              alt="Hostzero"
+              className="h-10"
+            />
+            <div className="h-6 w-px bg-border" />
+            <p className="text-sm font-medium text-muted-foreground">System Status</p>
           </div>
           <div className="flex items-center gap-3">
             <SubscribeButton onClick={() => setIsSubscribeOpen(true)} />
@@ -225,9 +228,16 @@ export default function Index() {
       {/* Footer */}
       <footer className="border-t border-border bg-card py-6">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <p className="text-sm text-muted-foreground">
-            © 2026 StatusPage. All systems monitored 24/7.
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <img
+              src={resolvedTheme === "dark" ? logoDark : logoLight}
+              alt="Hostzero"
+              className="h-6 opacity-60"
+            />
+            <p className="text-sm text-muted-foreground">
+              © 2026 Hostzero. All systems monitored 24/7.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
