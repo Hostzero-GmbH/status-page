@@ -201,7 +201,7 @@ export default function History() {
               <img
                 src={resolvedTheme === "dark" ? logoDark : logoLight}
                 alt="Hostzero"
-                className="h-10 transition-opacity duration-300"
+                className="h-10"
               />
             </Link>
             <div className="h-6 w-px bg-border" />

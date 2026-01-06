@@ -169,7 +169,7 @@ export default function Index() {
             <img
               src={resolvedTheme === "dark" ? logoDark : logoLight}
               alt="Hostzero"
-              className="h-10 transition-opacity duration-300"
+              className="h-10"
             />
             <div className="h-6 w-px bg-border" />
             <p className="text-sm font-medium text-muted-foreground">System Status</p>
