@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { StatusBanner } from "@/components/status/StatusBanner";
 import { ServiceGroup, type Service } from "@/components/status/ServiceGroup";
 import { MaintenanceCard, type MaintenanceItem } from "@/components/status/MaintenanceCard";
 import { IncidentTimeline, type DayIncidents } from "@/components/status/IncidentTimeline";
 import { StatusLegend } from "@/components/status/StatusLegend";
 import { ThemeToggle } from "@/components/status/ThemeToggle";
+import { SubscribeDialog, SubscribeButton } from "@/components/status/SubscribeDialog";
 import { Activity } from "lucide-react";
 
 // Sample data
@@ -150,9 +152,13 @@ function getOverallStatus() {
 
 export default function Index() {
   const overallStatus = getOverallStatus();
+  const [isSubscribeOpen, setIsSubscribeOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Subscribe Dialog */}
+      <SubscribeDialog isOpen={isSubscribeOpen} onClose={() => setIsSubscribeOpen(false)} />
+
       {/* Header */}
       <header className="border-b border-border bg-card">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
@@ -165,7 +171,10 @@ export default function Index() {
               <p className="text-xs text-muted-foreground">System Status</p>
             </div>
           </div>
-          <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <SubscribeButton onClick={() => setIsSubscribeOpen(true)} />
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
