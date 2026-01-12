@@ -83,12 +83,8 @@ export default buildConfig({
     ],
   },
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
-  cors: [
-    'http://localhost:3000',
-    process.env.NEXT_PUBLIC_SERVER_URL || '',
-  ].filter(Boolean),
-  csrf: [
-    'http://localhost:3000',
-    process.env.NEXT_PUBLIC_SERVER_URL || '',
-  ].filter(Boolean),
+  // Allow all origins for API access
+  cors: '*',
+  // CSRF is handled by SameSite cookies - no origin checking needed
+  csrf: [],
 })
