@@ -10,7 +10,7 @@ Hostzero Status is configured through environment variables and the admin panel.
 |----------|-------------|---------|
 | `DATABASE_URI` | PostgreSQL connection string | `postgres://user:pass@host:5432/db` |
 | `PAYLOAD_SECRET` | Secret key for encryption (min 32 chars) | `your-super-secret-key-here-32ch` |
-| `NEXT_PUBLIC_SERVER_URL` | Public URL of your status page | `https://status.example.com` |
+| `SERVER_URL` | Public URL of your status page | `https://status.example.com` |
 
 ### Optional
 

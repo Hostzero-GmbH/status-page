@@ -44,7 +44,7 @@ docker run -d \
   -p 3000:3000 \
   -e DATABASE_URI=postgres://user:pass@host:5432/db \
   -e PAYLOAD_SECRET=your-secret-key \
-  -e NEXT_PUBLIC_SERVER_URL=https://status.example.com \
+  -e SERVER_URL=https://status.example.com \
   ghcr.io/hostzero-gmbh/status-page:latest
 ```
 

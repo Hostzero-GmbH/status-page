@@ -68,7 +68,7 @@ Edit `.env`:
 ```env
 DATABASE_URI=postgres://localhost:5432/hostzero_status
 PAYLOAD_SECRET=your-development-secret-key
-NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+SERVER_URL=http://localhost:3000
 ```
 
 ### 4. Run Migrations

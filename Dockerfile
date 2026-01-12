@@ -20,14 +20,12 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Build-time environment variables
+# Build-time environment variables (SERVER_URL is set at runtime, not build time)
 ARG DATABASE_URI="postgresql://postgres:postgres@localhost:5432/hostzero_status"
 ARG PAYLOAD_SECRET="build-time-secret"
-ARG NEXT_PUBLIC_SERVER_URL
 
 ENV DATABASE_URI=${DATABASE_URI}
 ENV PAYLOAD_SECRET=${PAYLOAD_SECRET}
-ENV NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
 ENV SKIP_BUILD_STATIC_GENERATION=true
 
 RUN npm run build

@@ -10,7 +10,7 @@ services:
     environment:
       - DATABASE_URI=postgres://hostzero:${POSTGRES_PASSWORD:-changeme}@db:5432/hostzero_status
       - PAYLOAD_SECRET=${PAYLOAD_SECRET:-change-this-to-a-random-32-char-string}
-      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL:-http://localhost:3000}
+      - SERVER_URL=${SERVER_URL:-http://localhost:3000}
     depends_on:
       db:
         condition: service_healthy

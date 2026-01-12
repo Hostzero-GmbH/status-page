@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get the related item for the permalink
-    const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://status.example.com'
+    const siteUrl = process.env.SERVER_URL || 'https://status.example.com'
     let itemUrl = siteUrl
     let itemTitle = 'Status Update'
 

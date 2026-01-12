@@ -38,7 +38,7 @@ export async function sendNotificationFromCollectionHandler({ input, req }: Task
     depth: 1,
   }) as Setting
 
-  const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://status.example.com'
+  const siteUrl = process.env.SERVER_URL || 'https://status.example.com'
   const siteName = settings.siteName || 'Status Page'
   
   // Get logo URL for emails (use light logo since email backgrounds are white)

@@ -28,7 +28,7 @@ POSTGRES_PASSWORD=your-secure-password
 PAYLOAD_SECRET=your-32-character-secret-key-here
 
 # URLs
-NEXT_PUBLIC_SERVER_URL=https://status.yourdomain.com
+SERVER_URL=https://status.yourdomain.com
 
 # Optional: Email Notifications (SMTP)
 SMTP_HOST=smtp.example.com
@@ -73,7 +73,7 @@ services:
     environment:
       - DATABASE_URI=${DATABASE_URI}
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
-      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
+      - SERVER_URL=${SERVER_URL}
     depends_on:
       db:
         condition: service_healthy
@@ -114,7 +114,7 @@ services:
     environment:
       - DATABASE_URI=${DATABASE_URI}
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
-      - NEXT_PUBLIC_SERVER_URL=https://status.yourdomain.com
+      - SERVER_URL=https://status.yourdomain.com
     depends_on:
       db:
         condition: service_healthy
@@ -181,7 +181,7 @@ services:
     environment:
       - DATABASE_URI=${DATABASE_URI}
       - PAYLOAD_SECRET=${PAYLOAD_SECRET}
-      - NEXT_PUBLIC_SERVER_URL=https://status.yourdomain.com
+      - SERVER_URL=https://status.yourdomain.com
     depends_on:
       db:
         condition: service_healthy
