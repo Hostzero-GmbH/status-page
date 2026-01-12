@@ -12,13 +12,13 @@ const legendItems = [
 
 export function StatusLegend() {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+    <div className="grid grid-cols-2 gap-x-6 gap-y-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
       {legendItems.map((item) => {
         const Icon = item.icon;
         return (
-          <div key={item.label} className="flex items-center gap-1.5">
-            <Icon className={`h-4 w-4 ${item.colorClass}`} />
-            <span className="text-xs text-muted-foreground">{item.label}</span>
+          <div key={item.label} className="flex items-center gap-1.5 min-w-0">
+            <Icon className={`h-4 w-4 flex-shrink-0 ${item.colorClass}`} />
+            <span className="truncate text-xs text-muted-foreground">{item.label}</span>
           </div>
         );
       })}

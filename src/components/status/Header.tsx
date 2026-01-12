@@ -66,8 +66,8 @@ export function Header({
               <span className="text-xl font-bold text-foreground">{siteName}</span>
             )}
           </Link>
-          <div className="h-6 w-px bg-border" />
-          <p className="text-sm font-medium text-muted-foreground">{subtitle}</p>
+          <div className="hidden h-6 w-px bg-border sm:block" />
+          <p className="hidden text-sm font-medium text-muted-foreground sm:block">{subtitle}</p>
         </div>
         <div className="flex items-center gap-3">
           {children}

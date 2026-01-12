@@ -103,11 +103,11 @@ function IncidentCard({ incident, linkToDetail = false }: { incident: Incident; 
 
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden">
-      <div className="flex items-center justify-between border-b border-border px-5 py-4">
+      <div className="flex flex-col gap-2 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         {titleElement}
         <span
           className={cn(
-            "rounded-full px-3 py-1 text-xs font-medium",
+            "self-start rounded-full px-3 py-1 text-xs font-medium sm:self-auto",
             isResolved
               ? "bg-status-operational/10 text-status-operational"
               : "bg-status-degraded/10 text-status-degraded"
