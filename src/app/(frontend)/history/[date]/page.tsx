@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
 import type { Incident } from '@/payload-types'
@@ -183,7 +183,10 @@ async function getWeekData(dateSlug: string) {
   today.setHours(0, 0, 0, 0)
   const currentMonday = getMonday(today)
   
-  const hasNextWeek = nextMonday <= currentMonday
+  // Don't allow navigating to current week (it's shown on the main page)
+  const isCurrentWeek = formatDateSlug(monday) === formatDateSlug(currentMonday)
+  const hasNextWeek = nextMonday < currentMonday
+  const previousMonday = new Date(currentMonday.getTime() - 7 * 24 * 60 * 60 * 1000)
 
   return {
     settings,
@@ -192,7 +195,8 @@ async function getWeekData(dateSlug: string) {
     incidents: weekIncidents,
     prevWeekSlug: formatDateSlug(prevMonday),
     nextWeekSlug: hasNextWeek ? formatDateSlug(nextMonday) : null,
-    isCurrentWeek: formatDateSlug(monday) === formatDateSlug(currentMonday),
+    isCurrentWeek,
+    previousWeekSlug: formatDateSlug(previousMonday),
   }
 }
 
@@ -204,11 +208,16 @@ export default async function WeekPage({ params }: PageProps) {
     notFound()
   }
 
-  const { settings, weekStart, weekEnd, incidents, prevWeekSlug, nextWeekSlug, isCurrentWeek } = data
+  // Redirect current week to previous week (current week is shown on main page)
+  if (data.isCurrentWeek) {
+    redirect(`/history/${data.previousWeekSlug}`)
+  }
+
+  const { settings, weekStart, weekEnd, incidents, prevWeekSlug, nextWeekSlug } = data
   const totalIncidents = incidents.reduce((sum, day) => sum + day.incidents.length, 0)
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header
         siteName={settings.siteName}
         logoLightUrl={getMediaUrl(settings.logoLight)}
@@ -216,7 +225,7 @@ export default async function WeekPage({ params }: PageProps) {
         subtitle="Incident History"
       />
 
-      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8 sm:px-6">
         {/* Back Link */}
         <div className="mb-6">
           <Link
@@ -231,9 +240,7 @@ export default async function WeekPage({ params }: PageProps) {
         {/* Title and Week Range */}
         <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">
-              {isCurrentWeek ? "This Week" : "Incident History"}
-            </h1>
+            <h1 className="text-2xl font-bold text-foreground">Incident History</h1>
             <p className="mt-1 text-sm text-muted-foreground">
               {totalIncidents === 0
                 ? "No incidents reported"

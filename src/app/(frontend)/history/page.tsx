@@ -44,10 +44,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HistoryPage() {
-  // Redirect to current week (Monday of this week)
+  // Redirect to previous week (current week is shown on the main page)
   const today = new Date()
   const monday = getMonday(today)
-  const weekSlug = formatDateSlug(monday)
+  const previousMonday = new Date(monday)
+  previousMonday.setDate(previousMonday.getDate() - 7)
+  const weekSlug = formatDateSlug(previousMonday)
   
   redirect(`/history/${weekSlug}`)
 }

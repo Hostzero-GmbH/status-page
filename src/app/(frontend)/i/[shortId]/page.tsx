@@ -114,7 +114,7 @@ export default async function IncidentPage({ params }: PageProps) {
   const isResolved = incident.status === 'resolved'
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header
         siteName={settings.siteName}
         logoLightUrl={getMediaUrl(settings.logoLight)}
@@ -122,7 +122,7 @@ export default async function IncidentPage({ params }: PageProps) {
         subtitle="Incident Details"
       />
 
-      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8 sm:px-6">
         {/* Back Link & Copy */}
         <div className="mb-6 flex items-center justify-between">
           <Link

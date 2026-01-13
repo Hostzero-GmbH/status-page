@@ -222,7 +222,7 @@ export default async function StatusPage() {
   const { settings, overallStatus, serviceGroups, maintenances, pastIncidents } = await getStatusData()
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header
         siteName={settings.siteName}
         logoLightUrl={getMediaUrl(settings.logoLight)}
@@ -231,7 +231,7 @@ export default async function StatusPage() {
         <Subscribe />
       </Header>
 
-      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8 sm:px-6">
         {/* Status Banner */}
         <section className="mb-8 animate-fade-in">
           <StatusBanner status={overallStatus} />
@@ -239,15 +239,22 @@ export default async function StatusPage() {
 
         {/* Service Groups */}
         <section className="mb-10 space-y-4">
-          {serviceGroups.map((group, index) => (
-            <div
-              key={group.name}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <ServiceGroup name={group.name} services={group.services} />
-            </div>
-          ))}
+          {serviceGroups.map((group, index) => {
+            const allOperational = group.services.every((s) => s.status === 'operational')
+            return (
+              <div
+                key={group.name}
+                className="animate-fade-in"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <ServiceGroup
+                  name={group.name}
+                  services={group.services}
+                  defaultExpanded={!allOperational}
+                />
+              </div>
+            )
+          })}
         </section>
 
         {/* Status Legend */}
