@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "🚀 Starting Hostzero Status..."
+echo "🚀 Starting Yet Another Status Page..."
 echo "🌐 Server starting on port ${PORT:-3000}..."
 
 # Set hostname for Next.js

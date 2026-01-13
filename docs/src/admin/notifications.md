@@ -1,6 +1,6 @@
 # Notification Workflow
 
-Hostzero Status includes a powerful notification system that automatically creates notification drafts and allows you to review before sending.
+Yet Another Status Page includes a powerful notification system that automatically creates notification drafts and allows you to review before sending.
 
 ## How It Works
 

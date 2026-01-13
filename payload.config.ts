@@ -1,32 +1,32 @@
-import { buildConfig, Plugin } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import {
-  lexicalEditor,
-  FixedToolbarFeature,
   BoldFeature,
+  FixedToolbarFeature,
   ItalicFeature,
-  UnderlineFeature,
-  StrikethroughFeature,
+  lexicalEditor,
   LinkFeature,
   ParagraphFeature,
+  StrikethroughFeature,
+  UnderlineFeature,
 } from '@payloadcms/richtext-lexical'
 import path from 'path'
+import { buildConfig, Plugin } from 'payload'
 import { fileURLToPath } from 'url'
 
 // Collections
 import {
-  ServiceGroups,
-  Services,
   Incidents,
   Maintenances,
+  Media,
   Notifications,
+  ServiceGroups,
+  Services,
   Subscribers,
   Users,
-  Media,
 } from '@/collections'
 
 // Globals
-import { Settings, EmailSettings, SmsSettings } from '@/globals'
+import { EmailSettings, Settings, SmsSettings } from '@/globals'
 
 // Tasks
 import { sendNotificationFromCollectionHandler } from '@/tasks/sendNotificationFromCollection'
@@ -54,7 +54,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: ' | Hostzero Status',
+      titleSuffix: ' | Status',
     },
     components: {
       beforeDashboard: ['@/components/admin/DashboardWidgets#DashboardWidgets'],
@@ -92,7 +92,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: process.env.DATABASE_URI || process.env.POSTGRES_URL || '',
     },
     prodMigrations: migrations,
   }),

@@ -1,6 +1,6 @@
 # Configuration
 
-Hostzero Status is configured through environment variables and the admin panel.
+Yet Another Status Page is configured through environment variables and the admin panel.
 
 ## Environment Variables
 
@@ -11,6 +11,8 @@ Hostzero Status is configured through environment variables and the admin panel.
 | `DATABASE_URI` | PostgreSQL connection string | `postgres://user:pass@host:5432/db` |
 | `PAYLOAD_SECRET` | Secret key for encryption (min 32 chars) | `your-super-secret-key-here-32ch` |
 | `SERVER_URL` | Public URL of your status page | `https://status.example.com` |
+
+> **Note**: On Vercel, `POSTGRES_URL` is automatically set when you add a Vercel Postgres database. The app supports both `DATABASE_URI` and `POSTGRES_URL`.
 
 ### Optional
 

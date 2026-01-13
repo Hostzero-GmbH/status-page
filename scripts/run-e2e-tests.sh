@@ -19,9 +19,9 @@ NC='\033[0m' # No Color
 # Configuration
 COMPOSE_FILE="docker-compose.test.yml"
 TEST_URL="http://localhost:3001"
-PROJECT="hostzero-status-test"
+PROJECT="yasp-test"
 
-echo -e "${YELLOW}🧪 Hostzero Status E2E Test Runner${NC}"
+echo -e "${YELLOW}🧪 Yet Another Status Page E2E Test Runner${NC}"
 echo ""
 
 # Parse arguments

@@ -1,6 +1,6 @@
 # Installation
 
-Hostzero Status can be deployed in several ways. Choose the method that best fits your infrastructure.
+Yet Another Status Page can be deployed in several ways. Choose the method that best fits your infrastructure.
 
 ## Prerequisites
 
@@ -9,14 +9,27 @@ Hostzero Status can be deployed in several ways. Choose the method that best fit
 
 ## Deployment Options
 
-### Option 1: Docker Compose (Recommended)
+### Option 1: Vercel (One-Click)
 
-The easiest way to get started. See the [Docker Compose guide](docker-compose.md) for detailed instructions.
+Deploy instantly to Vercel with a managed PostgreSQL database:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHostzero-GmbH%2Fyet-another-status-page&env=PAYLOAD_SECRET&envDescription=Required%20environment%20variables%20for%20Yet%20Another%20Status%20Page&envLink=https%3A%2F%2Fhostzero-gmbh.github.io%2Fyet-another-status-page%2Fgetting-started%2Fconfiguration%2F&project-name=yet-another-status-page&repository-name=yet-another-status-page&stores=%5B%7B%22type%22%3A%22postgres%22%7D%5D)
+
+This will:
+1. Create a new Vercel project
+2. Provision a Vercel Postgres database
+3. Prompt you to set `PAYLOAD_SECRET` (generate a random 32+ character string)
+
+All configuration (site name, logos, services, notifications) is done through the admin panel — no code changes required.
+
+### Option 2: Docker Compose (Recommended for Self-Hosting)
+
+The easiest way to self-host. See the [Docker Compose guide](docker-compose.md) for detailed instructions.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Hostzero-GmbH/status-page.git
-cd status-page
+git clone https://github.com/Hostzero-GmbH/yet-another-status-page.git
+cd yet-another-status-page
 
 # Copy the example environment file
 cp .env.example .env
@@ -28,7 +41,7 @@ nano .env
 docker compose up -d
 ```
 
-### Option 2: Pre-built Docker Image
+### Option 3: Pre-built Docker Image
 
 Pull the latest image from GitHub Container Registry:
 
@@ -48,12 +61,12 @@ docker run -d \
   ghcr.io/hostzero-gmbh/status-page:latest
 ```
 
-### Option 3: Build from Source
+### Option 4: Build from Source
 
 ```bash
 # Clone the repository
-git clone https://github.com/Hostzero-GmbH/status-page.git
-cd status-page
+git clone https://github.com/Hostzero-GmbH/yet-another-status-page.git
+cd yet-another-status-page
 
 # Install dependencies
 npm install

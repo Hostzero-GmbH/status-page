@@ -1,6 +1,6 @@
 # Admin Overview
 
-The Hostzero Status admin panel is powered by Payload CMS and provides a comprehensive interface for managing your status page.
+The Yet Another Status Page admin panel is powered by Payload CMS and provides a comprehensive interface for managing your status page.
 
 ## Dashboard
 

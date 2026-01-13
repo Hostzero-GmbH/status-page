@@ -1,6 +1,6 @@
 # Local Development Setup
 
-This guide explains how to set up Hostzero Status for local development.
+This guide explains how to set up Yet Another Status Page for local development.
 
 ## Prerequisites
 
@@ -14,8 +14,8 @@ The easiest way to develop locally is using the included Docker Compose configur
 
 ```bash
 # Clone the repository
-git clone https://github.com/Hostzero-GmbH/status-page.git
-cd status-page
+git clone https://github.com/Hostzero-GmbH/yet-another-status-page.git
+cd yet-another-status-page
 
 # Start the development environment
 docker compose -f docker-compose.dev.yml up -d postgres  # Start only the database
@@ -52,8 +52,8 @@ createdb hostzero_status
 ### 2. Clone and Install
 
 ```bash
-git clone https://github.com/Hostzero-GmbH/status-page.git
-cd status-page
+git clone https://github.com/Hostzero-GmbH/yet-another-status-page.git
+cd yet-another-status-page
 npm install
 ```
 

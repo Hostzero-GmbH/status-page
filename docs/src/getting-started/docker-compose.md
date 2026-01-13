@@ -1,14 +1,14 @@
 # Docker Compose Setup
 
-This guide explains how to deploy Hostzero Status using Docker Compose.
+This guide explains how to deploy Yet Another Status Page using Docker Compose.
 
 ## Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Hostzero-GmbH/status-page.git
-cd status-page
+git clone https://github.com/Hostzero-GmbH/yet-another-status-page.git
+cd yet-another-status-page
 ```
 
 ### 2. Create Environment File

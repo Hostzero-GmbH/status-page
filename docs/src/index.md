@@ -1,4 +1,4 @@
-# Hostzero Status
+# Yet Another Status Page
 
 A modern, self-hosted status page built with [Payload CMS](https://payloadcms.com/) and [Next.js](https://nextjs.org/).
 
@@ -16,8 +16,8 @@ A modern, self-hosted status page built with [Payload CMS](https://payloadcms.co
 
 ```bash
 # Clone the repository
-git clone https://github.com/Hostzero-GmbH/status-page.git
-cd status-page
+git clone https://github.com/Hostzero-GmbH/yet-another-status-page.git
+cd yet-another-status-page
 
 # Start with Docker Compose
 docker compose up -d
@@ -29,7 +29,7 @@ Visit `http://localhost:3000` to see your status page, and `http://localhost:300
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Hostzero Status                          │
+│                 Yet Another Status Page                     │
 ├─────────────────────────────────────────────────────────────┤
 │  Frontend (Next.js)          │  Admin Panel (Payload CMS)   │
 │  - Status Page               │  - Manage Services           │
@@ -43,7 +43,7 @@ Visit `http://localhost:3000` to see your status page, and `http://localhost:300
 
 ## Documentation
 
-- [Installation Guide](getting-started/installation.md) - Get started with Hostzero Status
+- [Installation Guide](getting-started/installation.md) - Get started with Yet Another Status Page
 - [Docker Compose Setup](getting-started/docker-compose.md) - Deploy with Docker
 - [Admin Guide](admin/overview.md) - Learn how to manage your status page
 - [Notification Workflow](admin/notifications.md) - Understand the notification system

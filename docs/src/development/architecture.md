@@ -1,6 +1,6 @@
 # Architecture
 
-Hostzero Status is built with modern technologies for reliability and developer experience.
+Yet Another Status Page is built with modern technologies for reliability and developer experience.
 
 ## Tech Stack
 

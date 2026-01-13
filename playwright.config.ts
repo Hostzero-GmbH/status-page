@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
 /**
- * Playwright configuration for Hostzero Status E2E tests
+ * Playwright configuration for Yet Another Status Page E2E tests
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({

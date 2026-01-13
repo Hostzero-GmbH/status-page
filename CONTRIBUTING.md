@@ -1,6 +1,6 @@
-# Contributing to Hostzero Status
+# Contributing to Yet Another Status Page
 
-Thank you for your interest in contributing to Hostzero Status! We welcome contributions from the community and are grateful for any help you can provide.
+Thank you for your interest in contributing to Yet Another Status Page! We welcome contributions from the community and are grateful for any help you can provide.
 
 ## Table of Contents
 
@@ -22,16 +22,16 @@ By participating in this project, you agree to maintain a welcoming and inclusiv
 2. **Clone your fork** locally:
    ```bash
    git clone https://github.com/YOUR_USERNAME/status-page.git
-   cd hostzero-status
+   cd yet-another-status-page
    ```
 3. **Add the upstream remote**:
    ```bash
-   git remote add upstream https://github.com/Hostzero-GmbH/status-page.git
+   git remote add upstream https://github.com/Hostzero-GmbH/yet-another-status-page.git
    ```
 
 ## Development Setup
 
-For detailed setup instructions, see the [Local Development Guide](https://hostzero.github.io/hostzero-status/development/local-setup/).
+For detailed setup instructions, see the [Local Development Guide](https://hostzero-gmbh.github.io/yet-another-status-page/development/local-setup/).
 
 ### Quick Start
 
@@ -201,4 +201,4 @@ If you have questions about contributing, feel free to:
 - Ask in an existing issue
 - Reach out to the maintainers
 
-Thank you for contributing to Hostzero Status!
+Thank you for contributing to Yet Another Status Page!

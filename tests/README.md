@@ -1,6 +1,6 @@
 # Testing Guide
 
-This directory contains the test suite for Hostzero Status.
+This directory contains the test suite for Yet Another Status Page.
 
 ## E2E Tests (Playwright)
 

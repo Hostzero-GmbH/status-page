@@ -10,7 +10,7 @@ We release patches for security vulnerabilities in the following versions:
 
 ## Reporting a Vulnerability
 
-We take the security of Hostzero Status seriously. If you believe you have found a security vulnerability, please report it to us responsibly.
+We take the security of Yet Another Status Page seriously. If you believe you have found a security vulnerability, please report it to us responsibly.
 
 ### How to Report
 
@@ -42,7 +42,7 @@ Please include the following information in your report:
 
 ## Security Best Practices for Deployment
 
-When deploying Hostzero Status, please follow these security best practices:
+When deploying Yet Another Status Page, please follow these security best practices:
 
 ### Environment Variables
 
@@ -74,7 +74,7 @@ When deploying Hostzero Status, please follow these security best practices:
 
 ### Updates
 
-- Keep Hostzero Status updated to the latest version
+- Keep Yet Another Status Page updated to the latest version
 - Monitor dependencies for known vulnerabilities
 - Subscribe to security advisories
 
@@ -120,4 +120,4 @@ We appreciate the security research community's efforts in responsibly disclosin
 
 ---
 
-Thank you for helping keep Hostzero Status and its users safe!
+Thank you for helping keep Yet Another Status Page and its users safe!

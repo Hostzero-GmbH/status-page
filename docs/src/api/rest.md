@@ -1,6 +1,6 @@
 # REST API
 
-Hostzero Status provides a REST API for programmatic access to status data.
+Yet Another Status Page provides a REST API for programmatic access to status data.
 
 ## Base URL
 
