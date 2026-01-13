@@ -37,6 +37,9 @@ import { migrations } from '@/migrations'
 // Optional OIDC/SSO
 import { getOIDCPlugin, isOIDCPartiallyConfigured } from '@/lib/oidc'
 
+// Utils
+import { getServerUrl } from '@/lib/utils'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -115,5 +118,5 @@ export default buildConfig({
       },
     ],
   },
-  serverURL: process.env.SERVER_URL || 'http://localhost:3000',
+  serverURL: getServerUrl(),
 })

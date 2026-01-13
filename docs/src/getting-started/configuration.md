@@ -9,10 +9,14 @@ Yet Another Status Page is configured through environment variables and the admi
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `DATABASE_URI` | PostgreSQL connection string | `postgres://user:pass@host:5432/db` |
-| `PAYLOAD_SECRET` | Secret key for encryption (min 32 chars) | `your-super-secret-key-here-32ch` |
+| `PAYLOAD_SECRET` | Secret key for encryption (min 32 chars) - [Generate one](https://payloadsecret.com/) | `your-super-secret-key-here-32ch` |
 | `SERVER_URL` | Public URL of your status page | `https://status.example.com` |
 
-> **Note**: On Vercel, `POSTGRES_URL` is automatically set when you add a Vercel Postgres database. The app supports both `DATABASE_URI` and `POSTGRES_URL`.
+> **Note**: On Vercel, both `POSTGRES_URL` and `SERVER_URL` are automatically detected:
+> - `POSTGRES_URL` is set when you add a Vercel Postgres database
+> - `SERVER_URL` falls back to `VERCEL_PROJECT_PRODUCTION_URL` or `VERCEL_URL` if not explicitly set
+>
+> The app supports both `DATABASE_URI` and `POSTGRES_URL` for database connections.
 
 ### Optional
 

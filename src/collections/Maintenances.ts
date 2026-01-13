@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { generateShortId } from '@/lib/shortId'
 import { standardAccess } from '@/lib/access'
+import { getServerUrl } from '@/lib/utils'
 
 export const maintenanceStatusOptions = [
   { label: 'Upcoming', value: 'upcoming' },
@@ -66,7 +67,7 @@ async function createMaintenanceNotificationDeferred(data: DeferredNotification)
     const settings = await payload.findGlobal({ slug: 'settings' })
     const smsSettings = await payload.findGlobal({ slug: 'sms-settings' })
     const siteName = settings.siteName || 'Status'
-    const siteUrl = process.env.SERVER_URL || ''
+    const siteUrl = getServerUrl()
     
     // Get max lengths from SMS settings
     const titleMaxLength = smsSettings.templateTitleMaxLength || 50

@@ -1,6 +1,7 @@
 import type { BasePayload } from 'payload'
 import { sendBulkEmails, generateEmailHtml } from '@/lib/email'
 import { sendBulkSms, formatSmsMessage } from '@/lib/sms'
+import { getServerUrl } from '@/lib/utils'
 import type { Setting, EmailSetting, SmsSetting, Subscriber, Media } from '@/payload-types'
 
 export interface SendNotificationFromCollectionInput {
@@ -46,7 +47,7 @@ export async function sendNotificationFromCollectionHandler({ input, req }: Task
     slug: 'sms-settings',
   }) as SmsSetting
 
-  const siteUrl = process.env.SERVER_URL!
+  const siteUrl = getServerUrl()
   const siteName = settings.siteName || 'Status Page'
   
   // Get logo URL for emails (use light logo since email backgrounds are white)

@@ -1,5 +1,6 @@
 import type { Plugin, PayloadRequest } from 'payload'
 import { OAuth2Plugin } from 'payload-oauth2'
+import { getServerUrl } from '@/lib/utils'
 
 /**
  * OIDC/OAuth2 SSO Configuration
@@ -134,7 +135,7 @@ export function getOIDCPlugin(): Plugin | null {
     return null
   }
 
-  const serverUrl = process.env.SERVER_URL || 'http://localhost:3000'
+  const serverUrl = getServerUrl()
   const scopes = (process.env.OIDC_SCOPES || 'openid profile email').split(' ')
   const autoCreate = process.env.OIDC_AUTO_CREATE !== 'false'
   const groupClaim = process.env.OIDC_GROUP_CLAIM || 'groups'

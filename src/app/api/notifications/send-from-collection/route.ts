@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import { headers } from 'next/headers'
 import config from '@payload-config'
+import { getServerUrl } from '@/lib/utils'
 import type { Notification, Incident, Maintenance } from '@/payload-types'
 
 interface SendRequest {
@@ -63,7 +64,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get the related item for the permalink
-    const siteUrl = process.env.SERVER_URL || 'https://status.example.com'
+    const siteUrl = getServerUrl()
     let itemUrl = siteUrl
     let itemTitle = 'Status Update'
 
