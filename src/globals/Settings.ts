@@ -102,7 +102,7 @@ export const Settings: GlobalConfig = {
           relationTo: 'media',
           label: 'Favicon',
           admin: {
-            description: 'Site favicon (recommended: 32x32 or 64x64 PNG, ICO, or SVG)',
+            description: 'Site favicon (recommended: 32x32 or 64x64 PNG, ICO, or SVG). Leave empty to use default favicon.',
           },
         },
         {

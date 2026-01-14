@@ -22,6 +22,7 @@
     "@payloadcms/db-postgres": "3.70.0",
     "@payloadcms/next": "3.70.0",
     "@payloadcms/richtext-lexical": "3.70.0",
+    "@payloadcms/storage-vercel-blob": "^3.70.0",
     "@payloadcms/ui": "3.70.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

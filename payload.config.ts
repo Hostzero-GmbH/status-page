@@ -9,6 +9,7 @@ import {
   StrikethroughFeature,
   UnderlineFeature,
 } from '@payloadcms/richtext-lexical'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import path from 'path'
 import { buildConfig, Plugin } from 'payload'
 import { fileURLToPath } from 'url'
@@ -51,6 +52,19 @@ if (oidcPlugin) {
   console.log('OIDC SSO enabled')
 } else if (isOIDCPartiallyConfigured()) {
   console.warn('OIDC configuration incomplete - some OIDC_* env vars are set but not all required ones. SSO disabled.')
+}
+
+if (process.env.BLOB_READ_WRITE_TOKEN) {
+  plugins.push(
+    vercelBlobStorage({
+      enabled: true,
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    })
+  )
+  console.log('Vercel Blob storage enabled')
 }
 
 export default buildConfig({

@@ -18,6 +18,23 @@ Yet Another Status Page is configured through environment variables and the admi
 >
 > The app supports both `DATABASE_URI` and `POSTGRES_URL` for database connections.
 
+### Vercel Deployment
+
+When deploying to Vercel, you need to configure Vercel Blob storage for media uploads (since Vercel's filesystem is read-only):
+
+| Variable | Description | How to Get |
+|----------|-------------|------------|
+| `BLOB_READ_WRITE_TOKEN` | Vercel Blob storage token | [Create a Blob store](https://vercel.com/docs/storage/vercel-blob/quickstart) in your Vercel project |
+
+**Steps to set up Vercel Blob:**
+
+1. Go to your Vercel project dashboard
+2. Navigate to **Storage** → **Create Database** → **Blob**
+3. Copy the `BLOB_READ_WRITE_TOKEN` from the environment variables
+4. The token is automatically added to your deployment environment
+
+> **Note**: Media uploads will not work on Vercel without Vercel Blob storage configured.
+
 ### Optional
 
 | Variable | Description | Default |
