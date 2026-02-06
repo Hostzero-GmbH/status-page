@@ -15,7 +15,7 @@
     "test:e2e:headed": "./scripts/run-e2e-tests.sh --headed",
     "test:e2e:debug": "./scripts/run-e2e-tests.sh --debug",
     "test:e2e:ui": "./scripts/run-e2e-tests.sh --ui",
-    "test:e2e:fast": "CI= npx playwright test --project=chromium",
+    "test:e2e:fast": "CI= PAYLOAD_PUBLIC_ALLOW_WRITES=true npx playwright test --project=chromium",
     "test:e2e:report": "npx playwright show-report"
   },
   "dependencies": {

@@ -21,16 +21,37 @@ test.describe('Status Page', () => {
   })
 
   test('displays service groups and services', async ({ page }) => {
+    const uniqueId = Date.now()
+    
+    // Create test data to ensure it exists
+    const apiGroup = await createServiceGroup({ 
+      name: `API Services ${uniqueId}`,
+      slug: `api-services-${uniqueId}`
+    })
+    const webGroup = await createServiceGroup({ 
+      name: `Web Applications ${uniqueId}`,
+      slug: `web-applications-${uniqueId}`
+    })
+    await createService({ 
+      name: `REST API ${uniqueId}`,
+      slug: `rest-api-${uniqueId}`,
+      group: apiGroup.id 
+    })
+    await createService({ 
+      name: `Dashboard ${uniqueId}`,
+      slug: `dashboard-${uniqueId}`,
+      group: webGroup.id 
+    })
+
     await page.goto('/')
     
-    // Seeded data includes "API Services" and "Web Applications" groups
     // Use first() since there might be multiple matches
-    await expect(page.getByText('API Services').first()).toBeVisible()
-    await expect(page.getByText('Web Applications').first()).toBeVisible()
+    await expect(page.getByText(`API Services ${uniqueId}`).first()).toBeVisible()
+    await expect(page.getByText(`Web Applications ${uniqueId}`).first()).toBeVisible()
     
-    // Check for seeded services
-    await expect(page.getByText('REST API').first()).toBeVisible()
-    await expect(page.getByText('Dashboard').first()).toBeVisible()
+    // Check for services
+    await expect(page.getByText(`REST API ${uniqueId}`).first()).toBeVisible()
+    await expect(page.getByText(`Dashboard ${uniqueId}`).first()).toBeVisible()
   })
 
   test('displays subscribe button', async ({ page }) => {

@@ -114,7 +114,7 @@ test.describe('Maintenance Detail Page', () => {
     await page.goto('/m/nonexistent456')
     
     // Should show not found page
-    await expect(page.getByText(/not found/i)).toBeVisible()
+    await expect(page.getByText('Page Not Found')).toBeVisible()
   })
 
   test('has correct page title', async ({ page }) => {

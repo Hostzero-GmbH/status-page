@@ -120,7 +120,7 @@ test.describe('Incident Detail Page', () => {
     await page.goto('/i/nonexistent123')
     
     // Next.js shows 404 page
-    await expect(page.getByText(/not found/i)).toBeVisible()
+    await expect(page.getByText('Page Not Found')).toBeVisible()
   })
 
   test('has correct page title', async ({ page }) => {

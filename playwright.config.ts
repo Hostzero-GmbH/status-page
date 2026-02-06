@@ -86,5 +86,9 @@ export default defineConfig({
         url: 'http://localhost:3000',
         reuseExistingServer: true,
         timeout: 120000,
+        env: {
+          ...process.env,
+          PAYLOAD_PUBLIC_ALLOW_WRITES: 'true',
+        },
       },
 })

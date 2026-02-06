@@ -9,13 +9,21 @@ import { createIncident } from '../utils/payload-helpers'
  * (current week is shown on the main status page).
  */
 
+function formatDateSlug(date: Date): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 function getPreviousWeekSlug(): string {
   const today = new Date()
   const day = today.getDay()
   const diff = today.getDate() - day + (day === 0 ? -6 : 1) // Monday of current week
   today.setDate(diff)
+  today.setHours(0, 0, 0, 0)
   today.setDate(today.getDate() - 7) // Go back one week
-  return today.toISOString().split('T')[0]
+  return formatDateSlug(today)
 }
 
 function getPreviousWeekDate(): Date {
@@ -64,7 +72,8 @@ test.describe('History Page', () => {
     const day = today.getDay()
     const diff = today.getDate() - day + (day === 0 ? -6 : 1)
     today.setDate(diff)
-    const currentWeekSlug = today.toISOString().split('T')[0]
+    today.setHours(0, 0, 0, 0)
+    const currentWeekSlug = formatDateSlug(today)
     
     // Navigate to current week
     await page.goto(`/history/${currentWeekSlug}`)

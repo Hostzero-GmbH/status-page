@@ -17,7 +17,7 @@ import { FullConfig } from '@playwright/test'
 async function globalSetup(config: FullConfig) {
   const baseURL = process.env.PLAYWRIGHT_BASE_URL || 
     config.projects[0]?.use?.baseURL || 
-    'http://localhost:3001'
+    'http://localhost:3000'
 
   console.log(`\n🔧 E2E Test Setup`)
   console.log(`   Base URL: ${baseURL}`)

@@ -13,7 +13,7 @@
  * - May need cleanup between test runs
  */
 
-const API_BASE = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3001'
+const API_BASE = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000'
 
 interface ServiceGroup {
   id: number
