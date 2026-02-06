@@ -4,7 +4,7 @@
   "description": "A modern, self-hosted status page built with Payload CMS and Next.js",
   "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "lint": "eslint src/",

@@ -1,3 +1,4 @@
+import { ViewTransition } from 'react'
 import { getSettings } from '@/lib/payload'
 import { getMediaUrl } from '@/lib/utils'
 import type { Media } from '@/payload-types'
@@ -47,7 +48,9 @@ export default function FrontendLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        <ViewTransition>{children}</ViewTransition>
+      </body>
     </html>
   )
 }
